@@ -1,19 +1,17 @@
 <?php
-
 include("conexion.php");
 
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nombre    = $conn->real_escape_string($_POST['nombre']);
-    $apellidos = $conn->real_escape_string($_POST['apellidos']);
-    $correo    = $conn->real_escape_string($_POST['correo']);
-    $telefono  = $conn->real_escape_string($_POST['telefono']);
-    $contraseña  = $conn->real_escape_string($_POST['contraseña']);
+    $nombre     = $conn->real_escape_string($_POST['nombre']);
+    $apellidos  = $conn->real_escape_string($_POST['apellidos']);
+    $correo     = $conn->real_escape_string($_POST['correo']);
+    $numero     = $conn->real_escape_string($_POST['numero']);
+    $contrasena = $conn->real_escape_string($_POST['contrasena']);
 
-    if (!empty($nombre) && !empty($apellidos) && !empty($correo) && !empty($telefono)&& !empty($contraseña)) {
+    if (!empty($nombre) && !empty($apellidos) && !empty($correo) && !empty($numero) && !empty($contrasena)) {
         
-        $sql = "INSERT INTO usuarios (nombre, apellidos, correo, telefono, contraseña) 
-                VALUES ('$nombre', '$apellidos', '$correo', '$telefono','$contraseña')";
+        $sql = "INSERT INTO usuarios (nombre, apellidos, correo, numero, contrasena) 
+                VALUES ('$nombre', '$apellidos', '$correo', '$numero', '$contrasena')";
 
         if ($conn->query($sql) === TRUE) {
             echo "✅ Cuenta creada con éxito";
@@ -25,6 +23,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-// Cerrar conexión
 $conn->close();
 ?>
