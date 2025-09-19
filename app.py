@@ -20,11 +20,11 @@ def get_connection():
 # Rutas
 # -----------------------------
 @app.route("/")
-def home():
-    return render_template("inicio_sesion.html")
+def index():
+    return render_template("index.html")
 
 @app.route("/iniciar_sesion")
-def home():
+def iniciar_sesion():
     return render_template("iniciar_sesion.html")
 
 
