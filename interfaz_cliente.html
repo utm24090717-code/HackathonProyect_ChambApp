@@ -7,50 +7,34 @@
 </head>
 <body>
 
-  <!-- Encabezado -->
-  <h1>ChambApp</h1>
-  <nav>
-    <a href="#">Cliente</a> |
-    <a href="#">Trabajador</a>
-  </nav>
+  <!-- Header -->
+  <header>
+    <div class="logo">ChambApp</div>
+    <nav>
+      <a href="#" class="active">Cliente</a>
+      <a href="#">Trabajador</a>
+    </nav>
+  </header>
 
   <!-- Título -->
   <h2>Ofrecer una chamba:</h2>
 
-  <!-- Formulario -->
-  <form>
-    <label>
-      Tarea:
-      <input type="text" name="tarea">
-    </label>
-    <br><br>
-    <label>
-      Descripción:
-      <input type="text" name="descripcion">
-    </label>
-    <br><br>
-    <label>
-      Ofrezco:
-      <input type="text" name="ofrezco">
-    </label>
-    <br><br>
-    <label>
-      Ciudad / zona:
-      <input type="text" name="ciudad">
-    </label>
-    <br><br>
-    <button type="submit">Subir Tarea</button>
-  </form>
+  <!-- Formulario como en el diseño -->
+  <div class="form-container">
+    <input type="text" placeholder="Tarea">
+    <input type="text" placeholder="Descripcion">
+    <input type="text" placeholder="Ofrezco:">
+    <input type="text" placeholder="Ciudad/ zona:">
+    <button>Subir Tarea</button>
+  </div>
 
   <!-- Tareas frecuentes -->
-  <h3>Tareas Frecuentes</h3>
-  <ul>
-    <li>Tarea Frecuente</li>
-    <li>Tarea Frecuente</li>
-    <li>Tarea Frecuente</li>
-    <li>Tarea Frecuente</li>
-  </ul>
+  <div class="tasks">
+    <div class="task-card">Tarea<br>Frecuente</div>
+    <div class="task-card">Tarea<br>Frecuente</div>
+    <div class="task-card">Tarea<br>Frecuente</div>
+    <div class="task-card">Tarea<br>Frecuente</div>
+  </div>
 
 </body>
 </html>
-
