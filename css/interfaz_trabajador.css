@@ -1,0 +1,111 @@
+/* General */
+body {
+    font-family: Arial, sans-serif;
+    background: white;
+    margin: 20px;
+}
+
+/* Encabezado */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+header h2 {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 0 10px;
+    display: inline-block;
+}
+
+header h2:last-child {
+    text-decoration: underline;
+}
+
+/* Barra de búsqueda */
+.search-box {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#search-form fieldset {
+    border: none;
+    background: #a6a6a6;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    width: 450px;
+}
+
+#search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 14px;
+    color: white;
+}
+
+.search-icon {
+    width: 18px;
+    height: 18px;
+    background: url("https://cdn-icons-png.flaticon.com/512/149/149852.png") no-repeat center;
+    background-size: contain;
+    margin-right: 5px;
+}
+
+/* Barra de chambas */
+h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 15px 0;
+}
+
+/* Contenedor de chambas */
+section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+/* Cada chamba */
+article {
+    background: #f2f2f2;
+    border: 2px solid #c0c0c0;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Campos de texto */
+article input[type="text"] {
+    background: #a6a6a6;
+    border: none;
+    border-radius: 20px;
+    padding: 8px;
+    color: white;
+    font-size: 14px;
+    width: 60%;
+}
+
+/* Botón aceptar */
+article button {
+    background: cyan;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 15px;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    align-self: flex-end;
+}
