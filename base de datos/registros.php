@@ -14,12 +14,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 VALUES ('$nombre', '$apellidos', '$correo', '$numero', '$contrasena')";
 
         if ($conn->query($sql) === TRUE) {
-            echo "✅ Cuenta creada con éxito";
+            echo " Cuenta creada con éxito";
         } else {
-            echo "❌ Error: " . $conn->error;
+            echo " Error: " . $conn->error;
         }
     } else {
-        echo "⚠️ Todos los campos son obligatorios";
+        echo " Todos los campos son obligatorios";
     }
 }
 
