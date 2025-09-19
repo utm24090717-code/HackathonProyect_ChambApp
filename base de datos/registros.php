@@ -10,10 +10,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $telefono  = $conn->real_escape_string($_POST['telefono']);
     $contraseña  = $conn->real_escape_string($_POST['contraseña']);
 
-    if (!empty($nombre) && !empty($apellidos) && !empty($correo) && !empty($telefono)) {
+    if (!empty($nombre) && !empty($apellidos) && !empty($correo) && !empty($telefono)&& !empty($contraseña)) {
         
-        $sql = "INSERT INTO usuarios (nombre, apellidos, correo, telefono) 
-                VALUES ('$nombre', '$apellidos', '$correo', '$telefono')";
+        $sql = "INSERT INTO usuarios (nombre, apellidos, correo, telefono, contraseña) 
+                VALUES ('$nombre', '$apellidos', '$correo', '$telefono','$contraseña')";
 
         if ($conn->query($sql) === TRUE) {
             echo "✅ Cuenta creada con éxito";
