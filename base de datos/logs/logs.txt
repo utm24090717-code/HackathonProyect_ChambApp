@@ -4,3 +4,21 @@
 [2025-09-20 00:22:47] PASO2 - SQL a ejecutar: INSERT INTO usuarios (nombre, apellidos, correo, numero, contrasena) 
                 VALUES ('dfgfg', 'dfdfdf', 'dfdfd@dfdfd.com', '4444', 'fdgfdggdf')
 [2025-09-20 00:22:47] PASO3 - Cuenta creada con éxito
+[2025-09-20 00:28:57] PASO0 - Inicio del script
+[2025-09-20 00:28:57] Método POST detectado
+[2025-09-20 00:28:57] PASO1 - Todos los campos completos
+[2025-09-20 00:28:57] PASO2 - SQL a ejecutar: INSERT INTO usuarios (nombre, apellidos, correo, numero, contrasena) 
+                VALUES ('Chema', 'Gallegos', 'dfdfd@dfdfd.com', '666', 'Gokueselmejor')
+[2025-09-20 00:28:57] PASO3 - Cuenta creada con éxito
+[2025-09-20 00:33:21] PASO0 - Inicio del script
+[2025-09-20 00:33:21] Método POST detectado
+[2025-09-20 00:33:21] PASO1 - Todos los campos completos
+[2025-09-20 00:33:21] PASO2 - SQL a ejecutar: INSERT INTO usuarios (nombre, apellidos, correo, numero, contrasena) 
+                VALUES ('wuwhw', 'roooa', 'w3ww@gmaa', '444', '999')
+[2025-09-20 00:33:21] PASO3 - Cuenta creada con éxito
+[2025-09-20 00:43:02] PASO0 - Inicio del script
+[2025-09-20 00:43:02] Método POST detectado
+[2025-09-20 00:43:02] PASO1 - Todos los campos completos
+[2025-09-20 00:43:02] PASO2 - SQL a ejecutar: INSERT INTO usuarios (nombre, apellidos, correo, numero, contrasena) 
+                VALUES ('wuwhw', 'roooa', 'w3ww@gmaa', '444', '999')
+[2025-09-20 00:43:02] PASO3 - Cuenta creada con éxito
