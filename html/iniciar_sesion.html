@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChambApp - Inicio de Sesión</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <div class="contenedor">
+        <header class="encabezado">
+            <h1 class="titulo-principal">ChambApp</h1>
+            <p class="eslogan">Tareas rapidas, pago seguro</p>
+        </header>
+        
+        <div class="separador"></div>
+        
+        <section class="seccion-inicio-sesion">
+            <h2 class="titulo-seccion">INICIO DE SESION</h2>
+            
+            <form class="formulario-inicio-sesion">
+                <div class="grupo-formulario">
+                    <label for="correo">Correo:</label>
+                    <input type="email" id="correo" name="correo" required>
+                </div>
+                
+                <div class="grupo-formulario">
+                    <label for="contrasena">Contraseña:</label>
+                    <input type="password" id="contrasena" name="contrasena" required>
+                </div>
+                
+                <div class="grupo-formulario">
+                    <label for="verificar-contrasena">Verificar contraseña:</label>
+                    <input type="password" id="verificar-contrasena" name="verificar-contrasena" required>
+                </div>
+                
+                <button type="submit" class="boton-inicio-sesion">Iniciar Sesión</button>
+            </form>
+        </section>
+    </div>
+</body>
+</html>
