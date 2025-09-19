@@ -21,7 +21,7 @@ def get_connection():
 # -----------------------------
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return render_template("iniciar_sesion.html")
 
 @app.route("/iniciar_sesion")
 def iniciar_sesion():
