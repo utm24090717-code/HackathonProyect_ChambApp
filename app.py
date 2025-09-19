@@ -23,6 +23,11 @@ def get_connection():
 def home():
     return render_template("inicio_sesion.html")
 
+@app.route("/iniciar_sesion")
+def home():
+    return render_template("iniciar_sesion.html")
+
+
 @app.route("/usuarios")
 def usuarios():
     conexion = get_connection()
