@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChambApp</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Columna izquierda -->
+        <div class="left">
+            <h1 class="title">ChambApp</h1>
+            <p class="subtitle">Tareas rápidas, pago seguro</p>
+
+            <h2 class="login-title">Inicio de Sesión</h2>
+            <a href="#" class="link">Iniciar Sesión</a>
+            <a href="register.html" class="link">Crear Cuenta</a>
+        </div>
+
+        <!-- Columna derecha -->
+        <div class="right">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Service App Logo" class="logo">
+            <h2 class="service-title">SERVICE <span>APP</span></h2>
+        </div>
+    </div>
+</body>
+</html>
