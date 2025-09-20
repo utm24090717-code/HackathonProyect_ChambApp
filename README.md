@@ -9,10 +9,10 @@ Como sociedad, día a día vivimos la decadencia en el área laboral, no todas l
 ## Tecnologías usadas
 
 Para llevar esto a cabo se hará uso de las tecnologías: 
-- Html, Css: Nos ayudara a realizar el front end, es decir, la parte visual de la pagina.
-- Node.js: Se utilizará para realizar el deposito (el cliente hará el pago por el servicio) y el retiro (El socio recibirá el pago ya mencionado anteriormente) del dinero.
-- Python: Programación general.
-- OpenPayments: API de interledger.
+- **Html, Css:** Nos ayudara a realizar el front end, es decir, la parte visual de la pagina.
+- **Node.js:** Se utilizará para realizar el deposito (el cliente hará el pago por el servicio) y el retiro (El socio recibirá el pago ya mencionado anteriormente) del dinero.
+- **Python:** Programación general.
+- **OpenPayments:** API de interledger.
 
 ## Nuestra solución
 
@@ -20,7 +20,7 @@ En ChambApp proponemos mejorar esta situación con una pagina web que ayude a es
 
 ## Beneficios
 
-- Dar a conocer tus habilidades: Se busca ayudar a esa parte de la población que no sabe o no conoce como ofrecer sus conocimientos en distintas áreas, en las que tal vez, no haya una empresa que se dedique abiertamente a ella. 
-- Tener un ingreso extra: En el caso de los estudiantes, se sabe que no cuentan con un horario flexible y esto no les permite tener un ingreso extras con todos los gastos que implican distintas actividades escolares. Por otro lado, si la situación es desempleo, ayuda en los tiempos de crisis donde requieres de una ayuda aun que sea mínima.
-- Conocimiento extra: Desde la perspectiva de un cliente, tienes la seguridad de ver las reseñas, la calificación y tener la certeza de que si te encuentras en una situación donde no sabes donde acudir, podrás publicar la tarea que requieres realizar y distintas personas que conocen del tema, cotizarán por medio del chat.
+- **Dar a conocer tus habilidades:** Se busca ayudar a esa parte de la población que no sabe o no conoce como ofrecer sus conocimientos en distintas áreas, en las que tal vez, no haya una empresa que se dedique abiertamente a ella. 
+- **Tener un ingreso extra:** En el caso de los estudiantes, se sabe que no cuentan con un horario flexible y esto no les permite tener un ingreso extras con todos los gastos que implican distintas actividades escolares. Por otro lado, si la situación es desempleo, ayuda en los tiempos de crisis donde requieres de una ayuda aun que sea mínima.
+- **Conocimiento extra:** Desde la perspectiva de un cliente, tienes la seguridad de ver las reseñas, la calificación y tener la certeza de que si te encuentras en una situación donde no sabes donde acudir, podrás publicar la tarea que requieres realizar y distintas personas que conocen del tema, cotizarán por medio del chat.
 
