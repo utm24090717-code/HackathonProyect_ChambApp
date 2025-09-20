@@ -5,5 +5,14 @@
         "ofrezco": "1500",
         "ciudad": "Aguascayork",
         "creador": "romanjs@gmail.com"
+    },
+    {
+        "id": 2,
+        "titulo": "qq",
+        "descripcion": "q",
+        "ofrezco": "11",
+        "ciudad": "aa",
+        "creador": "yoyo@gmail.com",
+        "trabajador": null
     }
 ]
