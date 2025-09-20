@@ -1,0 +1,84 @@
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+/* Logo + Título */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-container img {
+    width: 40px;
+    height: 40px;
+}
+
+h1 {
+    font-size: 22px;
+    margin: 0;
+}
+
+        /* Menú */
+.menu {
+    display: flex;
+    gap: 20px;
+    font-weight: bold;
+}
+
+.menu a {
+    text-decoration: none;
+    color: black;
+}
+
+.menu a.active {
+    text-decoration: underline;
+}
+
+ /* Barra de búsqueda */
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    background: #a9a9a9;
+    border-radius: 15px;
+    padding: 5px 10px;
+    width: 400px;
+}
+
+.search-box input {
+    border: none;
+    background: transparent;
+    outline: none;
+    flex: 1;
+    padding: 5px;
+}
+
+.search-box img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+/* Texto debajo */
+main {
+    margin: 20px;
+}
+
+main h2 {
+    font-size: 18px;
+    margin: 0;
+}
