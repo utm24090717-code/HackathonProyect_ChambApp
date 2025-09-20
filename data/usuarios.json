@@ -40,5 +40,12 @@
         "correo": "romanjs@gmail.com",
         "contrasena": "scrypt:32768:8:1$6q7iiR03hfnhuwaE$03e66313e51275a66ec4bb2535160503f84dfd121a8c5a1120e134bab29daba0aa56c0bee402680c99a4192b2a97d3ab6e71ad820c87c47aa9153bbf9e30bb2c",
         "telefono": "443"
+    },
+    {
+        "nombre": "leo",
+        "apellidos": "barbosa",
+        "correo": "barbosa@gmail.com",
+        "contrasena": "scrypt:32768:8:1$IOHydvp3Cs1KxIvi$7cff6fb50f9cc429f47baf3f1943a2df7f82abcb61b99c4bf1d4387e12b18a0c2853baaf36e604d8ace037116b151860cb887af7fa678fee696a9fb7de2fdc7e",
+        "telefono": "1234567890"
     }
 ]
