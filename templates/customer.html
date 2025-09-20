@@ -1,27 +1,38 @@
-<div class="container-task">
-    <div class="header">
-        <h1>ChambApp</h1>
-        <nav>
-            <a href="{{ url_for('tareas') }}" class="active">Cliente</a>
-            <a href="#">Trabajador</a>
-        </nav>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>ChambApp - Cliente</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='customer.css') }}">
+</head>
+<body>
+    <div class="container-task">
+        <div class="header">
+            <h1>ChambApp</h1>
+            <nav>
+                <!-- Activo: Cliente -->
+                <a href="{{ url_for('tareas') }}" class="active">Cliente</a>
+                <a href="{{ url_for('worker') }}">Trabajador</a>
+            </nav>
+        </div>
+
+        <h2>Ofrecer una chamba:</h2>
+
+        <form action="{{ url_for('tareas') }}" method="POST" class="form-task">
+            <label for="tarea">Tarea</label>
+            <input type="text" id="tarea" name="tarea" required>
+
+            <label for="descripcion">Descripción</label>
+            <input type="text" id="descripcion" name="descripcion" required>
+
+            <label for="ofrezco">Ofrezco:</label>
+            <input type="text" id="ofrezco" name="ofrezco" required>
+
+            <label for="ciudad">Ciudad / zona:</label>
+            <input type="text" id="ciudad" name="ciudad" required>
+
+            <button type="submit" class="btn">Subir Tarea</button>
+        </form>
     </div>
-
-    <h2>Ofrecer una chamba:</h2>
-
-    <form action="{{ url_for('tareas') }}" method="POST" class="form-task">
-        <label for="tarea">Tarea</label>
-        <input type="text" id="tarea" name="tarea" required>
-
-        <label for="descripcion">Descripción</label>
-        <input type="text" id="descripcion" name="descripcion" required>
-
-        <label for="ofrezco">Ofrezco:</label>
-        <input type="text" id="ofrezco" name="ofrezco" required>
-
-        <label for="ciudad">Ciudad / zona:</label>
-        <input type="text" id="ciudad" name="ciudad" required>
-
-        <button type="submit" class="btn">Subir Tarea</button>
-    </form>
-</div>
+</body>
+</html>

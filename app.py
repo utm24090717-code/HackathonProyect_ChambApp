@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for, session 
 from werkzeug.security import generate_password_hash, check_password_hash
 import json, os
 
@@ -87,50 +87,68 @@ def login():
 
         # Si todo bien → guardar sesión
         session["usuario"] = f"{user['nombre']} {user['apellidos']}"
-        return redirect(url_for("worker"))  # 👉 Redirige a worker.html
+        session["correo"] = user["correo"]   # Guardamos también el correo para filtrar tareas
+        return redirect(url_for("tareas"))
 
     return render_template("login.html")
 
 
-# Página worker después de iniciar sesión
-@app.route("/worker")
-def worker():
-    if "usuario" not in session:
-        return redirect(url_for("login"))
-    return render_template("worker.html", usuario=session["usuario"])
-
-
-# Crear y listar tareas
+# Crear y listar tareas (CLIENTE)
 @app.route("/tareas", methods=["GET", "POST"])
 def tareas():
-    if "usuario" not in session:
+    if "usuario" not in session or "correo" not in session:
         return redirect(url_for("login"))
 
     if request.method == "POST":
-        titulo = request.form["titulo"]
+        titulo = request.form["tarea"]
         descripcion = request.form["descripcion"]
+        ofrezco = request.form["ofrezco"]
+        ciudad = request.form["ciudad"]
 
         with open(TAREAS_FILE, "r") as f:
             tareas = json.load(f)
 
-        tareas.append({"titulo": titulo, "descripcion": descripcion})
+        # Guardamos la tarea con el correo del creador
+        tareas.append({
+            "titulo": titulo,
+            "descripcion": descripcion,
+            "ofrezco": ofrezco,
+            "ciudad": ciudad,
+            "creador": session["correo"]  
+        })
 
         with open(TAREAS_FILE, "w") as f:
             json.dump(tareas, f, indent=4, ensure_ascii=False)
 
         return redirect(url_for("tareas"))
 
-    # Listar tareas
+    # Listar tareas (todas, solo para que el cliente vea lo que subió)
     with open(TAREAS_FILE, "r") as f:
         tareas = json.load(f)
 
-    return render_template("tareas.html", tareas=tareas, usuario=session.get("usuario"))
+    return render_template("customer.html", tareas=tareas, usuario=session.get("usuario"))
+
+
+# Vista TRABAJADOR (solo ve tareas de otros usuarios)
+@app.route("/worker")
+def worker():
+    if "usuario" not in session or "correo" not in session:
+        return redirect(url_for("login"))
+
+    with open(TAREAS_FILE, "r") as f:
+        tareas = json.load(f)
+
+    # Filtrar → excluir las creadas por el usuario logueado
+    tareas_disponibles = [t for t in tareas if t["creador"] != session["correo"]]
+
+    return render_template("worker.html", usuario=session.get("usuario"), tareas=tareas_disponibles)
 
 
 # Cerrar sesión
 @app.route("/logout")
 def logout():
     session.pop("usuario", None)
+    session.pop("correo", None)
     return redirect(url_for("index"))
 
 
