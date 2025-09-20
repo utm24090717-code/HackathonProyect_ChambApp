@@ -1,1 +1,9 @@
-[]
+[
+    {
+        "titulo": "Pintar",
+        "descripcion": "pintar mi casa",
+        "ofrezco": "1500",
+        "ciudad": "Aguascayork",
+        "creador": "romanjs@gmail.com"
+    }
+]

@@ -15,19 +15,34 @@
 
         <!-- Menú -->
         <nav class="menu">
-            <a href="#">Cliente</a>
-            <a href="#" class="active">Trabajador</a>
+            <a href="{{ url_for('tareas') }}">Cliente</a>
+            <a href="{{ url_for('worker') }}" class="active">Trabajador</a>
         </nav>
     </header>
 
-    <!-- Saludo dinámico con el nombre del usuario logueado -->
+    <!-- Saludo dinámico -->
     <div class="saludo">
         <h2>👋 Hola, {{ usuario }}</h2>
     </div>
 
-    <!-- Texto principal -->
+    <!-- Lista de chambas disponibles -->
     <main>
-        <h2>Barra de chambas :</h2>
+        <h2>Chambas disponibles:</h2>
+        {% if tareas %}
+            <ul class="tareas-lista">
+                {% for t in tareas %}
+                    <li>
+                        <h3>{{ t.titulo }}</h3>
+                        <p>{{ t.descripcion }}</p>
+                        <p><strong>Ofrezco:</strong> {{ t.ofrezco }}</p>
+                        <p><strong>Ciudad:</strong> {{ t.ciudad }}</p>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No hay chambas disponibles en este momento.</p>
+        {% endif %}
     </main>
 </body>
 </html>
+
