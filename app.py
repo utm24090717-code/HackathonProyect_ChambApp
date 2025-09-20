@@ -1,122 +1,70 @@
-from flask import Flask, render_template, request, redirect, url_for, flash, session
+from flask import Flask, render_template, request, redirect, url_for
 import json, os
 
 app = Flask(__name__)
-app.secret_key = "clave_super_secreta"  # Necesaria para sesiones y mensajes flash
 
-DATA_FILE = "data/usuarios.json"
+# Archivos de datos
+USUARIOS_FILE = "data/usuarios.json"
+TAREAS_FILE = "data/tareas.json"
 
-# Asegurar que exista la carpeta y el archivo
-if not os.path.exists("data"):
-    os.makedirs("data")
-
-if not os.path.isfile(DATA_FILE):
-    with open(DATA_FILE, "w") as f:
-        json.dump([], f)
-
-
-# ------------------- Rutas -------------------
+# Asegurar que existan
+for file in [USUARIOS_FILE, TAREAS_FILE]:
+    if not os.path.exists("data"):
+        os.makedirs("data")
+    if not os.path.isfile(file):
+        with open(file, "w") as f:
+            json.dump([], f)
 
 @app.route("/")
 def index():
     return render_template("index.html")
 
-
+# Registro de usuarios
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
         nombre = request.form["nombre"]
-        apellidos = request.form["apellidos"]
         correo = request.form["correo"]
-        telefono = request.form["telefono"]
-        password = request.form["password"]
 
-        # Cargar usuarios existentes
-        try:
-            with open(DATA_FILE, "r") as f:
-                usuarios = json.load(f)
-        except (json.JSONDecodeError, FileNotFoundError):
-            usuarios = []
+        with open(USUARIOS_FILE, "r") as f:
+            usuarios = json.load(f)
 
-        # Validar duplicados
-        for u in usuarios:
-            if u["correo"].lower() == correo.lower():
-                return render_template(
-                    "register.html",
-                    error="⚠️ Este correo ya está registrado.",
-                    nombre=nombre,
-                    apellidos=apellidos,
-                    correo=correo,
-                    telefono=telefono
-                )
-            if u["telefono"] == telefono:
-                return render_template(
-                    "register.html",
-                    error="⚠️ Este número telefónico ya está registrado.",
-                    nombre=nombre,
-                    apellidos=apellidos,
-                    correo=correo,
-                    telefono=telefono
-                )
+        # Validar correo único
+        if any(u["correo"].lower() == correo.lower() for u in usuarios):
+            return render_template("register.html", error="Correo ya registrado.", nombre=nombre, correo=correo)
 
-        # Agregar nuevo usuario
-        usuarios.append({
-            "nombre": nombre,
-            "apellidos": apellidos,
-            "correo": correo,
-            "telefono": telefono,
-            "password": password   # Guardar la contraseña
-        })
+        usuarios.append({"nombre": nombre, "correo": correo})
 
-        # Guardar en JSON
-        with open(DATA_FILE, "w") as f:
+        with open(USUARIOS_FILE, "w") as f:
             json.dump(usuarios, f, indent=4, ensure_ascii=False)
 
-        flash("✅ Registro exitoso. Ahora puedes iniciar sesión.", "success")
         return redirect(url_for("index"))
 
     return render_template("register.html")
 
+# Crear tareas
+@app.route("/tareas", methods=["GET", "POST"])
+def tareas():
+    if request.method == "POST":
+        titulo = request.form["titulo"]
+        descripcion = request.form["descripcion"]
 
-@app.route("/login", methods=["POST"])
-def login():
-    correo = request.form["correo"]
-    password = request.form["password"]
+        with open(TAREAS_FILE, "r") as f:
+            tareas = json.load(f)
 
-    # Cargar usuarios
-    try:
-        with open(DATA_FILE, "r") as f:
-            usuarios = json.load(f)
-    except (json.JSONDecodeError, FileNotFoundError):
-        usuarios = []
+        tareas.append({"titulo": titulo, "descripcion": descripcion})
 
-    # Buscar usuario
-    for u in usuarios:
-        if u["correo"].lower() == correo.lower() and u["password"] == password:
-            session["usuario"] = u["nombre"]
-            flash("✅ Has iniciado sesión correctamente", "success")
-            return redirect(url_for("index"))
+        with open(TAREAS_FILE, "w") as f:
+            json.dump(tareas, f, indent=4, ensure_ascii=False)
 
-    flash("❌ Correo o contraseña incorrectos", "error")
-    return redirect(url_for("index"))
+        return redirect(url_for("tareas"))
 
+    # Listar tareas
+    with open(TAREAS_FILE, "r") as f:
+        tareas = json.load(f)
 
-@app.route("/dashboard")
-def dashboard():
-    if "usuario" in session:
-        return f"Bienvenido {session['usuario']} a ChambApp!"
-    else:
-        flash("⚠️ Debes iniciar sesión primero", "error")
-        return redirect(url_for("index"))
+    return render_template("tareas.html", tareas=tareas)
 
 
-@app.route("/logout")
-def logout():
-    session.pop("usuario", None)
-    flash("👋 Sesión cerrada con éxito", "info")
-    return redirect(url_for("index"))
-
-
-# ------------------- Main -------------------
 if __name__ == "__main__":
     app.run(debug=True)
