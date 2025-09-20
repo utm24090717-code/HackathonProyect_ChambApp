@@ -33,5 +33,12 @@
         "correo": "y2y@gmail.com",
         "contrasena": "scrypt:32768:8:1$pSN1sDS51KlJd9fs$ef0278a6126569a9af115c92ace05a6d6e66532792ec0d866d89213a3c2e78053216dcc65764e57f43a8668b914b99d798d02c534fc0785201874f57482a32fc",
         "telefono": "34444"
+    },
+    {
+        "nombre": "Jose",
+        "apellidos": "Roman",
+        "correo": "romanjs@gmail.com",
+        "contrasena": "scrypt:32768:8:1$6q7iiR03hfnhuwaE$03e66313e51275a66ec4bb2535160503f84dfd121a8c5a1120e134bab29daba0aa56c0bee402680c99a4192b2a97d3ab6e71ad820c87c47aa9153bbf9e30bb2c",
+        "telefono": "443"
     }
 ]
