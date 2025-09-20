@@ -1,16 +1,32 @@
-
-body {
-    font-family: Arial, sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
 }
 
+body {
+    background: linear-gradient(135deg, #2c3e50, #1e2a38);
+    color: white;
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Header */
 header {
+    width: 100%;
+    max-width: 800px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
 }
 
-/* Logo + Título */
 .logo-container {
     display: flex;
     align-items: center;
@@ -18,67 +34,54 @@ header {
 }
 
 .logo-container img {
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
 }
 
-h1 {
-    font-size: 22px;
-    margin: 0;
+.logo-container h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #f1c40f;
 }
 
-        /* Menú */
 .menu {
     display: flex;
-    gap: 20px;
-    font-weight: bold;
+    gap: 15px;
 }
 
 .menu a {
     text-decoration: none;
-    color: black;
+    color: #ffffff;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
 }
 
 .menu a.active {
-    text-decoration: underline;
+    color: #3498db;
+    background-color: rgba(52, 152, 219, 0.1);
 }
 
- /* Barra de búsqueda */
-.search-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
+.menu a:hover:not(.active) {
+    background-color: #3498db;
 }
 
-.search-box {
-    display: flex;
-    align-items: center;
-    background: #a9a9a9;
-    border-radius: 15px;
-    padding: 5px 10px;
-    width: 400px;
+/* Saludo */
+.saludo {
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 20px;
 }
 
-.search-box input {
-    border: none;
-    background: transparent;
-    outline: none;
-    flex: 1;
-    padding: 5px;
+.saludo h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #ecf0f1;
 }
 
-.search-box img {
-    width: 20px;
-    height: 20px;
-    margin-right: 5px;
-}
-
-/* Texto debajo */
+/* Main */
 main {
-    margin: 20px;
-}
-
-main h2 {
-    font-size: 18px;
-    margin: 0;
+    width: 100%;
+    max-widt
 }
