@@ -47,5 +47,12 @@
         "correo": "koku@gmail.com",
         "contrasena": "scrypt:32768:8:1$jTygjSD5cTPu5WBe$d38b399d2b24ab8be80368add97f25d92259d5e86bfff8903381c3f3b684397caf1686d35913457fb8def1ef057bcdac565def0c00b1e640450dabf2153ab930",
         "telefono": "3333"
+    },
+    {
+        "nombre": "yo",
+        "apellidos": "yo",
+        "correo": "yoyo@gmail.com",
+        "contrasena": "scrypt:32768:8:1$UzojuCvS0inqykpY$3380208fdfb0dfb9fdf6a267fa41b92bd2a681960629eb6b507cef00433fe2ef94188ea580582113e5e5667a3a4301b48b7dfe0cbb7fa5cc0335d51eff42493b",
+        "telefono": "1234567890"
     }
 ]
