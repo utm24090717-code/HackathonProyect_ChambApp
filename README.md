@@ -5,3 +5,19 @@
 ## ¿Cuál es el problema?
   
 Como sociedad, día a día vivimos la decadencia en el área laboral, no todas las personas cuentan con el tiempo suficiente para tener un empleo de 8-12 horas continuas, de igual manera, una tarea estresante que se debe de cumplir, es la experiencia laboral, tomando en cuenta que muchos de las personas que se dirigen al sector industrial, son recién egresados de un grado estudiantil (preparatoria, universidad). 
+
+## Tecnologías usadas
+
+Para llevar esto a cabo se hará uso de las tecnologías: 
+- Html, Css: nos ayudara a realizar el front end, es decir, la parte visual de la pagina.
+- Node.js: Se utilizara para realizar el deposito (el cliente hará el pago por el servicio) y el retiro (El socio recibirá el pago ya mencionado anteriormente) del dinero.
+- Python: Programación general.
+- OpenPayments: API de interledger.
+
+## Nuestra solución
+
+En ChambApp proponemos mejorar esta situación con una pagina web que ayude a esta comunidad, dando la oportunidad de ofrecer tus servicios ya sean actividades fáciles de realizar e incluso actividades sencillas de oficios, tales como la carpintería, mecánica, jardinería, etc. así ayudando a este sector vulnerable que busca una ayuda monetaria extra en los tiempos que el mismo socio (trabajador) desee. 
+
+## Beneficios
+
+- Dar a conocer tus habilidades:
