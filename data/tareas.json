@@ -14,5 +14,12 @@
         "ciudad": "aa",
         "creador": "yoyo@gmail.com",
         "trabajador": null
+    },
+    {
+        "titulo": "podar pasto",
+        "descripcion": "necesito podar 50mts2 de pasto",
+        "ofrezco": "500",
+        "ciudad": "aguascalientes god",
+        "creador": "yoyo@gmail.com"
     }
 ]
