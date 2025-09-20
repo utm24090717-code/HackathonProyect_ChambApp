@@ -46,9 +46,9 @@
                             {% if t.trabajador %}
                                 <p><b>Trabajador:</b> {{ t.trabajador }}</p>
                                 {% if not t.pagada %}
-                                    <form action="{{ url_for('pagar_tarea', tarea_id=t.id) }}" method="POST">
-                                        <button type="submit" class="btn">Pagar</button>
-                                    </form>
+                                    <a href="https://wallet.interledger-test.dev" target="_blank">
+                                        <button type="button" class="btn">Pagar</button>
+                                    </a>
                                 {% else %}
                                     <p>✅ Ya pagada</p>
                                 {% endif %}
