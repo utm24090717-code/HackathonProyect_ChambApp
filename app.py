@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 DATA_FILE = "data/usuarios.json"
 
-# Asegurar que exista el archivo
+# Asegurar que exista la carpeta y el archivo
 if not os.path.exists("data"):
     os.makedirs("data")
 
@@ -23,25 +23,51 @@ def index():
 def register():
     if request.method == "POST":
         nombre = request.form["nombre"]
-        email = request.form["email"]
-        password = request.form["password"]
+        apellidos = request.form["apellidos"]
+        correo = request.form["correo"]
+        telefono = request.form["telefono"]
 
         # Cargar usuarios existentes
-        with open(DATA_FILE, "r") as f:
-            usuarios = json.load(f)
+        try:
+            with open(DATA_FILE, "r") as f:
+                usuarios = json.load(f)
+        except (json.JSONDecodeError, FileNotFoundError):
+            usuarios = []
+
+        # 🔹 Validar correo o teléfono duplicado
+        for u in usuarios:
+            if u["correo"].lower() == correo.lower():
+                return render_template(
+                    "register.html",
+                    error="⚠️ Este correo ya está registrado.",
+                    nombre=nombre,
+                    apellidos=apellidos,
+                    correo=correo,
+                    telefono=telefono
+                )
+            if u["telefono"] == telefono:
+                return render_template(
+                    "register.html",
+                    error="⚠️ Este número telefónico ya está registrado.",
+                    nombre=nombre,
+                    apellidos=apellidos,
+                    correo=correo,
+                    telefono=telefono
+                )
 
         # Agregar nuevo usuario
         usuarios.append({
             "nombre": nombre,
-            "email": email,
-            "password": password  # (⚠ en producción deberías cifrar la contraseña)
+            "apellidos": apellidos,
+            "correo": correo,
+            "telefono": telefono
         })
 
         # Guardar en JSON
         with open(DATA_FILE, "w") as f:
-            json.dump(usuarios, f, indent=4)
+            json.dump(usuarios, f, indent=4, ensure_ascii=False)
 
-        return redirect(url_for("index"))  # redirigir al inicio después de registrarse
+        return redirect(url_for("index"))
 
     return render_template("register.html")
 
