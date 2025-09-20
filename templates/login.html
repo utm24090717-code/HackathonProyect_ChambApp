@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - ChambApp</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container-register">
+        <div class="header">
+            <h1 class="title">ChambApp</h1>
+            <p class="subtitle">Tareas rápidas, pago seguro</p>
+        </div>
+
+        <h2 class="form-title">INICIO DE SESIÓN</h2>
+
+        <form action="/login" method="POST" class="form-register">
+            <label for="correo">Correo:</label>
+            <input type="email" id="correo" name="correo" required>
+
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit" class="btn">Entrar</button>
+        </form>
+    </div>
+</body>
+</html>
