@@ -82,5 +82,19 @@
         "correo": "r@gmail.com",
         "contrasena": "scrypt:32768:8:1$QYJcyTVrv8kiQNOe$31d7866bb45c10d8edc0b8b81a5d73fec1be51ffcffec4029907d6be4ab4861fbdae773bbea7252c26bcf59a16214b603a46075b92955edea98af502bf312d71",
         "telefono": "4"
+    },
+    {
+        "nombre": "manuel",
+        "apellidos": "ibarra",
+        "correo": "juanmanuelibarraolvera@gmail.com",
+        "contrasena": "scrypt:32768:8:1$150DlBBzwN2hyvfY$d9d3949135b7f10e27733dcc329354b233488a5cd723af932ad8d271e043d2c42c7da86911a12a535245b0f1414c75ef4e3b9abf14361a34fce85f8fc9eb0ad9",
+        "telefono": "4494979850"
+    },
+    {
+        "nombre": "jandra",
+        "apellidos": "ale",
+        "correo": "alejandra@gmail.com",
+        "contrasena": "scrypt:32768:8:1$zuwYIH4uRc6EstHn$516f6c2c15343b17c5b22dc93baef3748731afd49b5ee0c78d5ccdf0cd0e41d59cbaf675c6791e7f90f1b77a16b597bbda6d766bc948c043aedd525ba3a2740b",
+        "telefono": "4491802311"
     }
 ]

@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session 
 from werkzeug.security import generate_password_hash, check_password_hash
-import json, os
+import json, os, requests
 
 app = Flask(__name__)
 app.secret_key = "supersecretkey"  # Necesario para manejar sesiones
@@ -65,7 +65,7 @@ def register():
     return render_template("register.html")
 
 
-# Login de usuarios (validación correo + contraseña)
+# Login de usuarios
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -75,19 +75,18 @@ def login():
         with open(USUARIOS_FILE, "r") as f:
             usuarios = json.load(f)
 
-        # Buscar usuario por correo
+        # Buscar usuario
         user = next((u for u in usuarios if u["correo"].lower() == correo.lower()), None)
 
         if user is None:
             return render_template("login.html", error="Correo o contraseña incorrectos.", correo=correo)
 
-        # Validar contraseña
         if not check_password_hash(user["contrasena"], contrasena):
             return render_template("login.html", error="Correo o contraseña incorrectos.", correo=correo)
 
-        # Si todo bien → guardar sesión
+        # Guardar sesión
         session["usuario"] = f"{user['nombre']} {user['apellidos']}"
-        session["correo"] = user["correo"]   # Guardamos también el correo para filtrar tareas
+        session["correo"] = user["correo"]
         return redirect(url_for("tareas"))
 
     return render_template("login.html")
@@ -108,10 +107,8 @@ def tareas():
         with open(TAREAS_FILE, "r") as f:
             tareas = json.load(f)
 
-        # Asignar un id automático
         tarea_id = len(tareas)
 
-        # Guardamos la tarea con el correo del creador
         tareas.append({
             "id": tarea_id,
             "titulo": titulo,
@@ -119,7 +116,8 @@ def tareas():
             "ofrezco": ofrezco,
             "ciudad": ciudad,
             "creador": session["correo"],
-            "trabajador": None  # Inicialmente nadie acepta
+            "trabajador": None,
+            "pagada": False
         })
 
         with open(TAREAS_FILE, "w") as f:
@@ -127,14 +125,13 @@ def tareas():
 
         return redirect(url_for("tareas"))
 
-    # Listar tareas
     with open(TAREAS_FILE, "r") as f:
         tareas = json.load(f)
 
     return render_template("customer.html", tareas=tareas, usuario=session.get("usuario"))
 
 
-# Vista TRABAJADOR (solo ve tareas de otros usuarios)
+# Vista TRABAJADOR
 @app.route("/worker")
 def worker():
     if "usuario" not in session or "correo" not in session:
@@ -143,33 +140,70 @@ def worker():
     with open(TAREAS_FILE, "r") as f:
         tareas = json.load(f)
 
-    # Filtrar → excluir las creadas por el usuario logueado
     tareas_disponibles = [t for t in tareas if t["creador"] != session["correo"]]
 
     return render_template("worker.html", usuario=session.get("usuario"), tareas=tareas_disponibles)
 
 
-# Aceptar tarea por el trabajador
+# Aceptar tarea
 @app.route("/aceptar/<int:tarea_id>", methods=["POST"])
 def aceptar_tarea(tarea_id):
     if "usuario" not in session or "correo" not in session:
         return redirect(url_for("login"))
 
-    # Cargar tareas
     with open(TAREAS_FILE, "r") as f:
         tareas = json.load(f)
 
-    # Buscar la tarea por id y asignar trabajador
     for t in tareas:
         if t.get("id") == tarea_id and not t.get("trabajador"):
             t["trabajador"] = session["usuario"]
             break
 
-    # Guardar cambios
     with open(TAREAS_FILE, "w") as f:
         json.dump(tareas, f, indent=4, ensure_ascii=False)
 
     return redirect(url_for("worker"))
+
+
+# Pagar tarea (Cliente → Trabajador)
+@app.route("/pagar/<int:tarea_id>", methods=["POST"])
+def pagar_tarea(tarea_id):
+    if "usuario" not in session or "correo" not in session:
+        return redirect(url_for("login"))
+
+    with open(TAREAS_FILE, "r") as f:
+        tareas = json.load(f)
+
+    tarea = next((t for t in tareas if t.get("id") == tarea_id), None)
+    if not tarea:
+        return "Tarea no encontrada", 404
+
+    if not tarea.get("trabajador"):
+        return "No se puede pagar sin trabajador", 400
+
+    # 🚀 Simulación de pago con Open Payments
+    try:
+        payload = {
+            "amount": tarea["ofrezco"],
+            "assetCode": "USD",
+            "assetScale": 2,
+            "receiver": "https://openpayments.guide/api/payments/receiver",
+        }
+
+        r = requests.post("https://openpayments.guide/api/payments", json=payload)
+
+        if r.status_code == 201:
+            tarea["pagada"] = True
+        else:
+            print("Error de pago:", r.text)
+
+    except Exception as e:
+        print("Error conectando a Open Payments:", e)
+
+    with open(TAREAS_FILE, "w") as f:
+        json.dump(tareas, f, indent=4, ensure_ascii=False)
+
+    return redirect(url_for("tareas"))
 
 
 if __name__ == "__main__":

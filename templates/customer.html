@@ -10,7 +10,6 @@
         <div class="header">
             <h1>ChambApp</h1>
             <nav>
-                <!-- Activo: Cliente -->
                 <a href="{{ url_for('tareas') }}" class="active">Cliente</a>
                 <a href="{{ url_for('worker') }}">Trabajador</a>
             </nav>
@@ -46,7 +45,13 @@
                             <p><strong>Ciudad:</strong> {{ t.ciudad }}</p>
                             {% if t.trabajador %}
                                 <p><b>Trabajador:</b> {{ t.trabajador }}</p>
-                                <button type="button" class="btn">Pagar</button> <!-- Aquí irá Open Payments -->
+                                {% if not t.pagada %}
+                                    <form action="{{ url_for('pagar_tarea', tarea_id=t.id) }}" method="POST">
+                                        <button type="submit" class="btn">Pagar</button>
+                                    </form>
+                                {% else %}
+                                    <p>✅ Ya pagada</p>
+                                {% endif %}
                             {% else %}
                                 <p><i>Aún no hay trabajador asignado</i></p>
                             {% endif %}
@@ -60,3 +65,4 @@
     </div>
 </body>
 </html>
+

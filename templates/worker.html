@@ -7,25 +7,21 @@
 </head>
 <body>
     <header>
-        <!-- Logo + Título -->
         <div class="logo-container">
             <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
             <h1>ChambApp</h1>
         </div>
 
-        <!-- Menú -->
         <nav class="menu">
             <a href="{{ url_for('tareas') }}">Cliente</a>
             <a href="{{ url_for('worker') }}" class="active">Trabajador</a>
         </nav>
     </header>
 
-    <!-- Saludo dinámico -->
     <div class="saludo">
         <h2>👋 Hola, {{ usuario }}</h2>
     </div>
 
-    <!-- Lista de chambas disponibles -->
     <main>
         <h2>Chambas disponibles:</h2>
         {% if tareas %}
@@ -38,7 +34,7 @@
                         <p><strong>Ciudad:</strong> {{ t.ciudad }}</p>
 
                         {% if not t.trabajador %}
-                            <form action="{{ url_for('aceptar_tarea', tarea_id=loop.index0) }}" method="POST">
+                            <form action="{{ url_for('aceptar_tarea', tarea_id=t.id) }}" method="POST">
                                 <button type="submit" class="btn">Aceptar</button>
                             </form>
                         {% else %}
