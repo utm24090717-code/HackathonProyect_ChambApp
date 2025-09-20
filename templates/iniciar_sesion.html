@@ -3,70 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChambApp - Inicio de Sesión</title>
-    <link rel="stylesheet" href="estilos.css">
+    <title>Iniciar Sesión - ChambApp</title>
 </head>
 <body>
-    <div class="contenedor">
-        <header class="encabezado">
-            <h1 class="titulo-principal">ChambApp</h1>
-            <p class="eslogan">Tareas rapidas, pago seguro</p>
-        </header>
-        
-        <div class="separador"></div>
-        
-        <section class="seccion-inicio-sesion">
-            <h2 class="titulo-seccion">INICIO DE SESION</h2>
-            
-            <form class="formulario-inicio-sesion" id="formulario">
-                <div class="grupo-formulario">
-                    <label for="correo">Correo:</label>
-                    <input type="email" id="correo" name="correo" required>
-                </div>
-                
-                <div class="grupo-formulario">
-                    <label for="contrasena">Contraseña:</label>
-                    <input type="password" id="contrasena" name="contrasena" required>
-                </div>
-                
-                <div class="grupo-formulario">
-                    <label for="verificar-contrasena">Verificar contraseña:</label>
-                    <input type="password" id="verificar-contrasena" name="verificar-contrasena" required>
-                </div>
-                
-                <button type="submit" class="boton-inicio-sesion">Iniciar Sesión</button>
-            </form>
-        </section>
+    <div class="container">
+        <h1>Bienvenido a ChambApp</h1>
+        <h2>Inicia sesión</h2>
+        <form action="#" method="POST">
+            <label for="correo">Correo:</label>
+            <input type="email" id="correo" name="correo" required>
+
+            <label for="contrasena">Contraseña:</label>
+            <input type="password" id="contrasena" name="contrasena" required>
+
+            <button type="submit">Ingresar</button>
+        </form>
     </div>
-
-    <!-- Script para guardar datos en JSON -->
-    <script>
-        document.getElementById("formulario").addEventListener("submit", function(e) {
-            e.preventDefault(); // evita que se recargue la página
-
-            // Capturamos los valores
-            const correo = document.getElementById("correo").value;
-            const contrasena = document.getElementById("contrasena").value;
-            const verificar = document.getElementById("verificar-contrasena").value;
-
-            // Creamos el objeto JSON
-            const usuario = {
-                correo: correo,
-                contrasena: contrasena,
-                verificar_contrasena: verificar
-            };
-
-            // Lo convertimos a JSON string
-            const usuarioJSON = JSON.stringify(usuario, null, 2);
-
-            // Mostramos en consola
-            console.log("Usuario guardado en JSON:", usuarioJSON);
-
-            // También lo podemos guardar en localStorage (persiste en el navegador)
-            localStorage.setItem("usuario", usuarioJSON);
-
-            alert("Datos guardados en JSON (revisa la consola con F12)");
-        });
-    </script>
 </body>
 </html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChambApp - Registro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/creacion_cuenta.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Logo y lema -->
+        <header>
+            <h1>ChambApp</h1>
+            <p>Tareas rápidas, pago seguro</p>
+        </header>
+
+        <!-- Formulario de creación de cuenta -->
+        <div class="form-container">
+            <h2>CREACIÓN DE CUENTA</h2>
+            <form action="{{ url_for('registrar') }}" method="POST">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+
+                <label for="apellidos">Apellidos:</label>
+                <input type="text" id="apellidos" name="apellidos" required>
+
+                <label for="correo">Correo:</label>
+                <input type="email" id="correo" name="correo" required>
+
+                <label for="numero">Número telefónico:</label>
+                <input type="tel" id="numero" name="numero" required>
+
+                <label for="contrasena">Contraseña:</label>
+                <input type="password" id="contrasena" name="contrasena" required>
+
+                <button type="submit" class="btn-registro">¡Registrarme!</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
