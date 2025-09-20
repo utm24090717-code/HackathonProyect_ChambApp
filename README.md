@@ -9,8 +9,8 @@ Como sociedad, día a día vivimos la decadencia en el área laboral, no todas l
 ## Tecnologías usadas
 
 Para llevar esto a cabo se hará uso de las tecnologías: 
-- Html, Css: nos ayudara a realizar el front end, es decir, la parte visual de la pagina.
-- Node.js: Se utilizara para realizar el deposito (el cliente hará el pago por el servicio) y el retiro (El socio recibirá el pago ya mencionado anteriormente) del dinero.
+- Html, Css: Nos ayudara a realizar el front end, es decir, la parte visual de la pagina.
+- Node.js: Se utilizará para realizar el deposito (el cliente hará el pago por el servicio) y el retiro (El socio recibirá el pago ya mencionado anteriormente) del dinero.
 - Python: Programación general.
 - OpenPayments: API de interledger.
 
