@@ -18,7 +18,7 @@ body {
 
 /* ==== Contenedor principal ==== */
 .container-register {
-    background: rgba(0, 0, 0, 0.75);
+    background: rgb(0, 0, 0);
     padding: 40px;
     border-radius: 16px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
