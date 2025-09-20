@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, flash, session
 import json, os
 
 app = Flask(__name__)
@@ -71,6 +71,20 @@ def register():
 
     return render_template("register.html")
 
+@app.route('/login', methods=['POST'])
+def login():
+    correo = request.form['correo']
+    password = request.form['password']
 
+    # Aquí deberías validar contra tu base de datos
+    # Ejemplo con credenciales fijas:
+    if correo == "admin@chambapp.com" and password == "12345":
+        session['usuario'] = correo
+        flash("Has iniciado sesión correctamente", "success")
+        return redirect(url_for('dashboard'))
+    else:
+        flash("Correo o contraseña incorrectos", "error")
+        return redirect(url_for('home'))
+    
 if __name__ == "__main__":
     app.run(debug=True)
