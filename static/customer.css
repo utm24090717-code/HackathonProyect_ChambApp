@@ -13,6 +13,8 @@ body {
     align-items: center;
     min-height: 100vh;
     padding: 20px;
+    color: white;
+
 }
 
 .container-task {
@@ -34,7 +36,7 @@ body {
 }
 
 .header h1 {
-    color: #2c3e50;
+    color: #f1c40f;
     font-size: 24px;
     font-weight: bold;
 }
@@ -46,7 +48,7 @@ nav {
 
 nav a {
     text-decoration: none;
-    color: #7f8c8d;
+    color: #ffffff;
     font-weight: 500;
     padding: 5px 10px;
     border-radius: 5px;
@@ -59,11 +61,11 @@ nav a.active {
 }
 
 nav a:hover:not(.active) {
-    background-color: #f5f5f5;
+    background-color: #3498db;
 }
 
 h2 {
-    color: #2c3e50;
+    color: #ffffff;
     margin-bottom: 20px;
     font-size: 18px;
     font-weight: 600;
@@ -77,16 +79,17 @@ h2 {
 
 label {
     font-weight: 500;
-    color: #2c3e50;
+    color: #ffffff;
     margin-bottom: -10px;
 }
 
 input[type="text"] {
     padding: 12px 15px;
-    border: 1px solid #ddd;
+    border: hsla(0, 0%, 67%, 0.25);
     border-radius: 5px;
     font-size: 14px;
     transition: border-color 0.3s;
+    background-color: hsla(0, 0%, 67%, 0.25);
 }
 
 input[type="text"]:focus {
