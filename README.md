@@ -64,15 +64,10 @@ The stack is as follows:
 
 ## Responsabilidad por integrante/Responsibility per member
 
-- **Sanchez Barbosa Leonardo (lider del equipo):** Da indicaciones sobre las actividades a realizar por cada integrante además del backen de la pagina web.
-- **Martínez Campos Alejandra:** Se hará responsable del Front end, es decir, realizara la caratula y vista de la pagina hacia el publico. 
-- **Roman Gallegos Jose Maria:** Se encargará de la base de datos quien se encargara de guardar todos los usuarios y tareas que se hagan.
-- **Mota Salcedo Diana Paulina:** Hace el rol de redactor técnico, quien realizará toda la documentación así como la demostración del proyecto.
-
-- **Sanchez Barbosa Leonardo (team leader):** Provides instructions on the activities to be carried out by each member, as well as backing up the website.
-- **Martínez Campos Alejandra:** Will be responsible for the front end, i.e., designing the cover and public view of the page. 
-- **Roman Gallegos Jose Maria:** Will be in charge of the database, which will store all users and tasks performed.
-- **Mota Salcedo Diana Paulina:** Acts as technical editor, who will prepare all documentation and demonstrate the project.
+- **Sanchez Barbosa Leonardo (lider del equipo):** Da indicaciones sobre las actividades a realizar por cada integrante además del backen de la pagina web/ Provides instructions on the activities to be carried out by each member, as well as backing up the website.
+- **Martínez Campos Alejandra:** Se hará responsable del Front end, es decir, realizara la caratula y vista de la pagina hacia el publico/ Will be responsible for the front end, i.e., designing the cover and public view of the page. 
+- **Roman Gallegos Jose Maria:** Se encargará de la base de datos quien se encargara de guardar todos los usuarios y tareas que se hagan/ Will be in charge of the database, which will store all users and tasks performed.
+- **Mota Salcedo Diana Paulina:** Hace el rol de redactor técnico, quien realizará toda la documentación así como la demostración del proyecto/ Acts as technical editor, who will prepare all documentation and demonstrate the project.
 
 Como anteriormente se menciono, se hará uso de HTML, Css, Node.js, Python y OpenPayments (las razones ya fueron mencionadas). Con la finalidad de crear una unión entre la comodidad y la tecnología, creándolo de manera visualmente atractiva y fácil de usar. 
 
