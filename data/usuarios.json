@@ -26,5 +26,12 @@
         "apellidos": "perez",
         "correo": "pancho@gmail.com",
         "telefono": "4499871234"
+    },
+    {
+        "nombre": "Lalo",
+        "apellidos": "Sanchez Barbosa",
+        "correo": "y2y@gmail.com",
+        "contrasena": "scrypt:32768:8:1$pSN1sDS51KlJd9fs$ef0278a6126569a9af115c92ace05a6d6e66532792ec0d866d89213a3c2e78053216dcc65764e57f43a8668b914b99d798d02c534fc0785201874f57482a32fc",
+        "telefono": "34444"
     }
 ]
