@@ -3,39 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crear Cuenta - ChambApp</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='register.css') }}">
+    <title>Inicio de Sesión - ChambApp</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
 </head>
 <body>
-    <div class="container-register">
+    <div class="container-login">
         <div class="header">
             <h1 class="title">ChambApp</h1>
             <p class="subtitle">Tareas rápidas, pago seguro</p>
         </div>
 
-        <h2 class="form-title">CREACIÓN DE CUENTA</h2>
+        <h2 class="form-title">INICIO DE SESIÓN</h2>
         {% if error %}
             <p style="color: red; font-weight: bold;">{{ error }}</p>
         {% endif %}
 
-        <form action="/register" method="POST" class="form-register">
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" value="{{ nombre or '' }}" required>
-
-            <label for="apellidos">Apellidos:</label>
-            <input type="text" id="apellidos" name="apellidos" value="{{ apellidos or '' }}" required>
-
+        <form action="/login" method="POST" class="form-login">
             <label for="correo">Correo:</label>
             <input type="email" id="correo" name="correo" value="{{ correo or '' }}" required>
 
             <label for="contrasena">Contraseña:</label>
             <input type="password" id="contrasena" name="contrasena" required>
 
-            <label for="telefono">Número telefónico:</label>
-            <input type="tel" id="telefono" name="telefono" value="{{ telefono or '' }}" required>
-
-            <button type="submit" class="btn">Aceptar</button>
+            <button type="submit" class="btn">Entrar</button>
         </form>
+
+        <p>¿No tienes cuenta? <a href="{{ url_for('register') }}">Crear cuenta</a></p>
     </div>
 </body>
 </html>

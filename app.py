@@ -87,9 +87,17 @@ def login():
 
         # Si todo bien → guardar sesión
         session["usuario"] = f"{user['nombre']} {user['apellidos']}"
-        return redirect(url_for("tareas"))
+        return redirect(url_for("worker"))  # 👉 Redirige a worker.html
 
     return render_template("login.html")
+
+
+# Página worker después de iniciar sesión
+@app.route("/worker")
+def worker():
+    if "usuario" not in session:
+        return redirect(url_for("login"))
+    return render_template("worker.html", usuario=session["usuario"])
 
 
 # Crear y listar tareas
@@ -128,5 +136,3 @@ def logout():
 
 if __name__ == "__main__":
     app.run(debug=True)
-
-

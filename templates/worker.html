@@ -20,12 +20,9 @@
         </nav>
     </header>
 
-    <!-- Barra de búsqueda -->
-    <div class="search-container">
-        <div class="search-box">
-            <img src="{{ url_for('static', filename='search.png') }}" alt="Buscar">
-            <input type="text" placeholder="Buscar chambas rápidas">
-        </div>
+    <!-- Saludo dinámico con el nombre del usuario logueado -->
+    <div class="saludo">
+        <h2>👋 Hola, {{ usuario }}</h2>
     </div>
 
     <!-- Texto principal -->
