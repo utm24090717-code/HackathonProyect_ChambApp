@@ -19,7 +19,7 @@ if not os.path.isfile(DATA_FILE):
 
 @app.route("/")
 def index():
-    return render_template("login.html")
+    return render_template("index.html")
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -95,7 +95,7 @@ def login():
         if u["correo"].lower() == correo.lower() and u["password"] == password:
             session["usuario"] = u["nombre"]
             flash("✅ Has iniciado sesión correctamente", "success")
-            return redirect(url_for("dashboard"))
+            return redirect(url_for("index"))
 
     flash("❌ Correo o contraseña incorrectos", "error")
     return redirect(url_for("index"))
