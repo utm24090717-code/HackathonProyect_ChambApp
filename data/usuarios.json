@@ -20,5 +20,11 @@
         "apellidos": "Sanchez Barbosa",
         "correo": "yw222y@gmail.com",
         "telefono": "4491223"
+    },
+    {
+        "nombre": "pancho",
+        "apellidos": "perez",
+        "correo": "pancho@gmail.com",
+        "telefono": "4499871234"
     }
 ]
