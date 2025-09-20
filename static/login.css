@@ -17,13 +17,13 @@ body {
 }
 
 /* ==== Contenedor principal ==== */
-.container-register {
+.container-login {
     background: rgba(0, 0, 0, 0.75);
     padding: 40px;
     border-radius: 16px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
     width: 100%;
-    max-width: 450px;
+    max-width: 400px;
     text-align: center;
     backdrop-filter: blur(12px);
     animation: fadeIn 1s ease-in-out;
@@ -54,7 +54,7 @@ body {
 }
 
 /* ==== Inputs ==== */
-.form-register label {
+.form-login label {
     display: block;
     text-align: left;
     margin-bottom: 6px;
@@ -62,7 +62,7 @@ body {
     color: #aaa;
 }
 
-.form-register input {
+.form-login input {
     width: 100%;
     padding: 12px;
     margin-bottom: 18px;
@@ -75,7 +75,7 @@ body {
     transition: all 0.3s ease;
 }
 
-.form-register input:focus {
+.form-login input:focus {
     background: #2d3a4d;
     box-shadow: 0 0 10px #00c6ff80;
     transform: scale(1.02);
@@ -100,6 +100,19 @@ body {
     background: linear-gradient(90deg, #0072ff, #00c6ff);
     box-shadow: 0 8px 25px rgba(0, 198, 255, 0.6);
     transform: translateY(-2px);
+}
+
+/* ==== Links ==== */
+a {
+    color: #00c6ff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+a:hover {
+    color: #fff;
+    text-shadow: 0 0 8px #00c6ff;
 }
 
 /* ==== Mensajes de error ==== */

@@ -1,71 +1,119 @@
-body {
-    font-family: Arial, sans-serif;
+/* ==== Reset básico ==== */
+* {
     margin: 0;
     padding: 0;
-    background: #fff;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ==== Fondo elegante ==== */
+body {
+    background: linear-gradient(135deg, #141e30, #243b55);
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    color: #fff;
 }
 
+/* ==== Contenedor principal ==== */
 .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 80%;
+    width: 85%;
+    max-width: 1200px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(12px);
+    animation: fadeIn 1s ease-in-out;
 }
 
+/* ==== Columna izquierda ==== */
 .left {
     flex: 1;
-}
-
-.right {
-    flex: 1;
-    text-align: center;
+    padding-right: 30px;
 }
 
 .title {
     font-size: 3rem;
     font-weight: bold;
     margin-bottom: 0.5rem;
+    color: #00c6ff;
+    text-shadow: 0 0 15px #00c6ff80;
 }
 
 .subtitle {
     font-size: 1.2rem;
-    color: #333;
+    color: #ccc;
     margin-bottom: 2rem;
 }
 
-.login-title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
+/* ==== Columna derecha ==== */
+.right {
+    flex: 1;
+    text-align: center;
 }
 
+.login-title {
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+
+/* ==== Links ==== */
 .link {
     display: block;
-    margin: 0.5rem 0;
-    font-size: 1.2rem;
-    text-decoration: underline;
-    color: black;
+    margin: 0.8rem 0;
+    font-size: 1.1rem;
+    text-decoration: none;
+    color: #00c6ff;
+    font-weight: bold;
+    transition: all 0.3s ease;
 }
 
+.link:hover {
+    color: #fff;
+    text-shadow: 0 0 10px #00c6ff;
+}
+
+/* ==== Logo ==== */
 .logo {
     width: 200px;
     height: auto;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    filter: drop-shadow(0 0 10px #00c6ff80);
 }
 
+/* ==== Servicios ==== */
 .service-title {
     font-size: 2rem;
     font-weight: bold;
-    color: #0d2340;
+    color: #00c6ff;
+    margin-top: 1rem;
+    text-shadow: 0 0 10px #00c6ff80;
 }
 
 .service-title span {
     display: block;
     font-size: 1.2rem;
     font-weight: normal;
+    color: #ccc;
 }
 
+/* ==== Animaciones ==== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
