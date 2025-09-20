@@ -32,8 +32,31 @@
             <input type="text" id="ciudad" name="ciudad" required>
 
             <button type="submit" class="btn">Subir Tarea</button>
-            <button type="submit" class="btn">Pagar</button>
         </form>
+
+        <h2>Mis tareas:</h2>
+        {% if tareas %}
+            <ul class="tareas-lista">
+                {% for t in tareas %}
+                    {% if t.creador == session['correo'] %}
+                        <li>
+                            <h3>{{ t.titulo }}</h3>
+                            <p>{{ t.descripcion }}</p>
+                            <p><strong>Ofrezco:</strong> {{ t.ofrezco }}</p>
+                            <p><strong>Ciudad:</strong> {{ t.ciudad }}</p>
+                            {% if t.trabajador %}
+                                <p><b>Trabajador:</b> {{ t.trabajador }}</p>
+                                <button type="button" class="btn">Pagar</button> <!-- Aquí irá Open Payments -->
+                            {% else %}
+                                <p><i>Aún no hay trabajador asignado</i></p>
+                            {% endif %}
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No has subido ninguna tarea aún.</p>
+        {% endif %}
     </div>
 </body>
 </html>

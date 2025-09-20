@@ -54,5 +54,33 @@
         "correo": "yoyo@gmail.com",
         "contrasena": "scrypt:32768:8:1$UzojuCvS0inqykpY$3380208fdfb0dfb9fdf6a267fa41b92bd2a681960629eb6b507cef00433fe2ef94188ea580582113e5e5667a3a4301b48b7dfe0cbb7fa5cc0335d51eff42493b",
         "telefono": "1234567890"
+    },
+    {
+        "nombre": "alejandra",
+        "apellidos": "martinez",
+        "correo": "alemar@gmail.com",
+        "contrasena": "scrypt:32768:8:1$MSYMCeMk90CXZUXO$6d8fa2184eadeb96ab71cda9219a121b333739f867135517d25c5727a94dd8cec4ecc9a2cedb9a92b2c3b4be1f987fd57f0324a9b0cc85c5160adb8f9858cf90",
+        "telefono": "0987654321"
+    },
+    {
+        "nombre": "ja",
+        "apellidos": "ra",
+        "correo": "j@gmail.com",
+        "contrasena": "scrypt:32768:8:1$n6Zpnp3lGsMMS8zU$ba8fb4c2ec253ccf0b4f95aacf9ba57a6de7c0f1b7746dc542d7507553d245b9e0b4929435cbbc967afe989aa5fdabdf26220063cab6fff143d5d1496367fb86",
+        "telefono": "4444"
+    },
+    {
+        "nombre": "leo",
+        "apellidos": "r",
+        "correo": "g@gmail.com",
+        "contrasena": "scrypt:32768:8:1$YCotoMCohn8eB71Z$0b98b0c323d470efa982ad48a17bdbec7a6259a851cd5800c757989432e83be5ca77384a78b5e36a9521b6929633cc206fadb0f4c19455fc41abf31494c8f029",
+        "telefono": "33"
+    },
+    {
+        "nombre": "rr",
+        "apellidos": "r",
+        "correo": "r@gmail.com",
+        "contrasena": "scrypt:32768:8:1$QYJcyTVrv8kiQNOe$31d7866bb45c10d8edc0b8b81a5d73fec1be51ffcffec4029907d6be4ab4861fbdae773bbea7252c26bcf59a16214b603a46075b92955edea98af502bf312d71",
+        "telefono": "4"
     }
 ]

@@ -36,6 +36,14 @@
                         <p>{{ t.descripcion }}</p>
                         <p><strong>Ofrezco:</strong> {{ t.ofrezco }}</p>
                         <p><strong>Ciudad:</strong> {{ t.ciudad }}</p>
+
+                        {% if not t.trabajador %}
+                            <form action="{{ url_for('aceptar_tarea', tarea_id=loop.index0) }}" method="POST">
+                                <button type="submit" class="btn">Aceptar</button>
+                            </form>
+                        {% else %}
+                            <p><b>Ya aceptada por:</b> {{ t.trabajador }}</p>
+                        {% endif %}
                     </li>
                 {% endfor %}
             </ul>
@@ -45,4 +53,3 @@
     </main>
 </body>
 </html>
-

@@ -108,13 +108,18 @@ def tareas():
         with open(TAREAS_FILE, "r") as f:
             tareas = json.load(f)
 
+        # Asignar un id automático
+        tarea_id = len(tareas)
+
         # Guardamos la tarea con el correo del creador
         tareas.append({
+            "id": tarea_id,
             "titulo": titulo,
             "descripcion": descripcion,
             "ofrezco": ofrezco,
             "ciudad": ciudad,
-            "creador": session["correo"]  
+            "creador": session["correo"],
+            "trabajador": None  # Inicialmente nadie acepta
         })
 
         with open(TAREAS_FILE, "w") as f:
@@ -122,7 +127,7 @@ def tareas():
 
         return redirect(url_for("tareas"))
 
-    # Listar tareas (todas, solo para que el cliente vea lo que subió)
+    # Listar tareas
     with open(TAREAS_FILE, "r") as f:
         tareas = json.load(f)
 
@@ -144,12 +149,27 @@ def worker():
     return render_template("worker.html", usuario=session.get("usuario"), tareas=tareas_disponibles)
 
 
-# Cerrar sesión
-@app.route("/logout")
-def logout():
-    session.pop("usuario", None)
-    session.pop("correo", None)
-    return redirect(url_for("index"))
+# Aceptar tarea por el trabajador
+@app.route("/aceptar/<int:tarea_id>", methods=["POST"])
+def aceptar_tarea(tarea_id):
+    if "usuario" not in session or "correo" not in session:
+        return redirect(url_for("login"))
+
+    # Cargar tareas
+    with open(TAREAS_FILE, "r") as f:
+        tareas = json.load(f)
+
+    # Buscar la tarea por id y asignar trabajador
+    for t in tareas:
+        if t.get("id") == tarea_id and not t.get("trabajador"):
+            t["trabajador"] = session["usuario"]
+            break
+
+    # Guardar cambios
+    with open(TAREAS_FILE, "w") as f:
+        json.dump(tareas, f, indent=4, ensure_ascii=False)
+
+    return redirect(url_for("worker"))
 
 
 if __name__ == "__main__":

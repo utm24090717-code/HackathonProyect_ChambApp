@@ -13,7 +13,7 @@
         "ofrezco": "11",
         "ciudad": "aa",
         "creador": "yoyo@gmail.com",
-        "trabajador": null
+        "trabajador": "yo yo"
     },
     {
         "titulo": "podar pasto",
@@ -21,5 +21,23 @@
         "ofrezco": "500",
         "ciudad": "aguascalientes god",
         "creador": "yoyo@gmail.com"
+    },
+    {
+        "id": 3,
+        "titulo": "ejemplo",
+        "descripcion": "222",
+        "ofrezco": "112",
+        "ciudad": "arssss",
+        "creador": "g@gmail.com",
+        "trabajador": "rr r"
+    },
+    {
+        "id": 4,
+        "titulo": "w",
+        "descripcion": "w",
+        "ofrezco": "w",
+        "ciudad": "w",
+        "creador": "r@gmail.com",
+        "trabajador": null
     }
 ]
